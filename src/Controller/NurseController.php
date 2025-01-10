@@ -11,6 +11,17 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/nurse', name: 'app_nurse')]
 class NurseController extends AbstractController
 {
+    #[Route('/user')]
+    public function index(): JsonResponse{
+        return $this->json([
+            "id"=>1, "name"=>"Eric"
+        ]);
+    }
+
+
+
+
+
     // Información de todos los enfermeros registrados
     #[Route('/getAll', name: 'app_nurse_getAll')]
     public function getAll(): JsonResponse
@@ -61,4 +72,7 @@ class NurseController extends AbstractController
             return new JsonResponse(['message' => 'El enfermero con ese nombre no existe.'], Response::HTTP_NOT_FOUND);
         }
     }
+
+
+
 }
